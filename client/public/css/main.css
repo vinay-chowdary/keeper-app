@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&display=swap");
+
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Roboto Mono', monospace; */
+/* dark-blue:#060930 */
+/* light-purple:#333456 */
+/* light-blue:#595b83 */
+/* light-pink:#f4abc4 */
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.15rem;
+  background: #f4abc58a;
+  position: relative;
+  min-height: 100vh;
+}
+header {
+  font-family: "Montserrat", sans-serif;
+  background: #333456;
+  box-shadow: 0 0 15px 0 #333;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+header h1 {
+  padding: 1.5rem 0;
+}
+.brand {
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: rgba(51, 51, 51, 0.698);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+.note {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 5px 10px 3px rgba(51, 51, 51, 0.356);
+  word-wrap: break-word;
+  font-size: 1rem;
+  padding: 3px 3px 20px;
+  cursor: pointer;
+  transition: all linear 0.2s;
+  position: relative;
+}
+.note:hover {
+  transform: scale(1.03);
+}
+.noteTitle,
+.noteText {
+  padding: 12px;
+}
+
+.noteTitle {
+  color: #060930;
+}
+.noteText {
+  color: rgba(51, 51, 51, 0.822);
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.delete {
+  color: #33345662;
+  width: 100%;
+}
+.delete .fa-trash {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  transition: transform 0.5s ease;
+}
+.delete .fa-trash:hover {
+  color: #333456;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.newNote {
+  margin: 2.5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.newNote form {
+  flex: 0 1 500px;
+  position: relative;
+  background-color: #fff;
+  padding: 0.6rem 0.3rem;
+  border-radius: 20px;
+  box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.76);
+}
+
+textarea,
+input {
+  resize: none;
+  display: block;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 1rem 10px;
+  margin-bottom: 1rem;
+}
+input[name="Title"] {
+  font-size: 1.7rem;
+}
+textarea[name="Content"] {
+  font-size: 1.2rem;
+}
+
+textarea::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
+.newNote button {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  font-size: 30px;
+  padding: 0.25rem;
+  margin: auto;
+  box-sizing: content-box;
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  background-color: #333456;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: bolder;
+  z-index: 2;
+  text-align: center;
+  /* to prevent blue flash when, on mobile device */
+  -webkit-tap-highlight-color: transparent;
+}
+.newNote button:focus,
+.newNote button:active {
+  border: none;
+  outline: none;
+}
+.newNote button:hover {
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.637);
+}
+.newNote button:active {
+  transform: scale(1.1);
+}
+
+.display-none {
+  display: none;
+}
