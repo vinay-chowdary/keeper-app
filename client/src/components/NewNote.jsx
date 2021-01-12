@@ -1,31 +1,40 @@
 import React, { useState } from 'react';
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
-
+import Zoom from '@material-ui/core/Zoom';
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 function NewNote(props) {
     const [newNote, setNewNote] = useState({
         Title: "",
         Content: ""
     });
+    const [displayTitle, setDisplayTitle] = useState(false);
     function handleChange(event) {
         const { name, value } = event.target;
         setNewNote((prevState) => ({ ...prevState, [name]: value }))
+    }
+    const handleClick = (event) => {
+        setDisplayTitle(true);
     }
     return (
         <div className="newNote container">
             <form
                 autoComplete="off"
                 onSubmit={(e) => {
-                    props.onAdd(newNote);
-                    setNewNote({
-                        Title: "",
-                        Content: ""
-                    })
+                    if (newNote.Title && newNote.Content) {
+                        props.onAdd(newNote);
+                        setDisplayTitle(false);
+
+                        setNewNote({
+                            Title: "",
+                            Content: ""
+                        })
+                    }
                     e.preventDefault();
                 }}
             >
-                <div>
+                {displayTitle &&
                     <input
                         name="Title"
                         id="todoTitle"
@@ -33,27 +42,29 @@ function NewNote(props) {
                         value={newNote.Title}
                         onChange={handleChange}
                         required={true}
-                        rows="2"
                         spellCheck="false"
+                        autoFocus={true}
                     >
                     </input>
-                </div>
-                <div>
-                    <textarea
-                        name="Content"
-                        id="todotext"
-                        placeholder="take a note"
-                        value={newNote.Content}
-                        onChange={handleChange}
-                        required
-                        rows="3"
-                        spellCheck="false"
-                    >
-                    </textarea>
-                </div>
-                <Fab type="submit" color="#00adb5" aria-label="add" className="addBtn">
-                    <AddIcon />
-                </Fab>
+                }
+                <TextareaAutosize
+                    onClick={handleClick}
+                    name="Content"
+                    id="todotext"
+                    className="textarea"
+                    placeholder="take a note"
+                    value={newNote.Content}
+                    onChange={handleChange}
+                    required
+                    rowsMin="1"
+                    rowsMax="7"
+                    spellCheck="false"
+                />
+                {displayTitle && <Zoom timeout={700} in={true}>
+                    <Fab type="submit" color="#00adb5" aria-label="add" className="addBtn">
+                        <AddIcon />
+                    </Fab>
+                </Zoom>}
             </form>
         </div>
     );
