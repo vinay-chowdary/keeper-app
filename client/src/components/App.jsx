@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { NewNote } from './NewNote';
-import { Note } from "./Note"
-import data from "./data"
+import { Note } from "./Note";
+import data from "./data";
 
 
 function App() {

@@ -15,13 +15,13 @@
 body {
   font-family: "Roboto Mono", monospace;
   font-size: 1.15rem;
-  background: #f4abc58a;
+  background: #0f0f0f;
   position: relative;
   min-height: 100vh;
 }
 header {
   font-family: "Montserrat", sans-serif;
-  background: #333456;
+  background: #00adb5;
   box-shadow: 0 0 15px 0 #333;
   margin-bottom: 2rem;
   color: #fff;
@@ -35,6 +35,7 @@ a {
   margin: 0 auto;
 }
 header h1 {
+  color: #eee;
   padding: 1.5rem 0;
 }
 .brand {
@@ -57,9 +58,9 @@ footer {
   padding-bottom: 2rem;
 }
 .note {
-  background: #ffffff;
+  background: #000000;
   border-radius: 15px;
-  box-shadow: 5px 10px 3px rgba(51, 51, 51, 0.356);
+  box-shadow: 5px 5px 5px rgba(189, 189, 189, 0.356);
   word-wrap: break-word;
   font-size: 1rem;
   padding: 3px 3px 20px;
@@ -76,30 +77,34 @@ footer {
 }
 
 .noteTitle {
-  color: #060930;
+  color: #eee;
 }
 .noteText {
-  color: rgba(51, 51, 51, 0.822);
+  color: rgb(197, 197, 197);
 }
 .flex {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.delete {
-  color: #33345662;
-  width: 100%;
-}
-.delete .fa-trash {
+
+.delete.flex {
+  justify-content: flex-end;
   position: absolute;
-  bottom: 10px;
-  right: 10px;
-  transition: transform 0.5s ease;
+  width: 100%;
+  bottom: 0%;
 }
-.delete .fa-trash:hover {
-  color: #333456;
-  cursor: pointer;
-  transform: scale(1.1);
+
+.delete .iconButton {
+  padding: 5px 10px;
+}
+
+.delete-icon {
+  color: #00acb557;
+}
+
+.delete-icon:hover {
+  color: #00acb5;
 }
 
 .newNote {
@@ -111,9 +116,9 @@ footer {
 .newNote form {
   flex: 0 1 500px;
   position: relative;
-  background-color: #fff;
+  background-color: #eee;
   padding: 0.6rem 0.3rem;
-  border-radius: 20px;
+  border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.76);
 }
 
@@ -126,6 +131,7 @@ input {
   width: 100%;
   padding: 1rem 10px;
   margin-bottom: 1rem;
+  background-color: #eee;
 }
 input[name="Title"] {
   font-size: 1.7rem;
@@ -138,39 +144,29 @@ textarea::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
 }
-.newNote button {
-  width: 2rem;
-  height: 2rem;
-  border: none;
-  outline: none;
-  border-radius: 50%;
-  font-size: 30px;
-  padding: 0.25rem;
-  margin: auto;
-  box-sizing: content-box;
+.newNote .addBtn {
+  /* margin: auto; */
+  /* box-sizing: content-box; */
   position: absolute;
   right: 20px;
   bottom: -20px;
-  background-color: #333456;
-  color: #fff;
+  background-color: #00adb5;
+  color: #eee;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: bolder;
   z-index: 2;
-  text-align: center;
   /* to prevent blue flash when, on mobile device */
   -webkit-tap-highlight-color: transparent;
 }
-.newNote button:focus,
-.newNote button:active {
+.newNote .addBtn:focus,
+.newNote .addBtn:active {
   border: none;
   outline: none;
 }
-.newNote button:hover {
+.newNote .addBtn:hover {
   box-shadow: 0 0 10px rgba(51, 51, 51, 0.637);
-}
-.newNote button:active {
-  transform: scale(1.1);
+  color: #eee;
+  background-color: #008d94;
 }
 
 .display-none {

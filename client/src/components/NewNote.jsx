@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Fab from '@material-ui/core/Fab';
+import AddIcon from '@material-ui/icons/Add';
 
 
 function NewNote(props) {
@@ -49,9 +51,9 @@ function NewNote(props) {
                     >
                     </textarea>
                 </div>
-                <button
-                    type="submit"
-                >+</button>
+                <Fab type="submit" color="#00adb5" aria-label="add" className="addBtn">
+                    <AddIcon />
+                </Fab>
             </form>
         </div>
     );
