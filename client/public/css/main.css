@@ -35,12 +35,16 @@ a {
   margin: 0 auto;
 }
 header h1 {
-  color: #eee;
   padding: 1.5rem 0;
 }
 .brand {
+  color: #eee;
   font-size: 2.5rem;
   margin-left: 1rem;
+}
+
+.logo {
+  color: #eeeeee;
 }
 
 footer {
@@ -59,17 +63,19 @@ footer {
 }
 .note {
   background: #000000;
-  border-radius: 15px;
-  box-shadow: 5px 5px 5px rgba(189, 189, 189, 0.356);
+  border-radius: 8px;
+  box-shadow: 2px 0px 2px rgba(189, 189, 189, 0.356);
   word-wrap: break-word;
   font-size: 1rem;
   padding: 3px 3px 20px;
   cursor: pointer;
   transition: all linear 0.2s;
   position: relative;
+  outline: none;
 }
 .note:hover {
   transform: scale(1.03);
+  box-shadow: 1.5px 0px 1px rgb(255, 255, 255);
 }
 .noteTitle,
 .noteText {
@@ -122,31 +128,31 @@ footer {
   box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.76);
 }
 
-textarea,
+.textarea,
 input {
   resize: none;
   display: block;
   border: none;
   outline: none;
   width: 100%;
-  padding: 1rem 10px;
+  padding: 0.8rem 10px;
   margin-bottom: 1rem;
   background-color: #eee;
 }
 input[name="Title"] {
-  font-size: 1.7rem;
-}
-textarea[name="Content"] {
-  font-size: 1.2rem;
+  font-size: 1.8rem;
 }
 
-textarea::-webkit-scrollbar {
+.textarea {
+  font-size: 1.4rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+.textarea::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
 }
 .newNote .addBtn {
-  /* margin: auto; */
-  /* box-sizing: content-box; */
   position: absolute;
   right: 20px;
   bottom: -20px;
