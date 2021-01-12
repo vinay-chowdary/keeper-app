@@ -7,13 +7,18 @@ function Note(props) {
     let showText = props.text;
     if (showTitle.length > 25) showTitle = showTitle.slice(0, 25).concat("...");
     if (showText.length > 60) showText = showText.slice(0, 60).concat("...");
+    const handleClick = (e) => {
+        // {go to another page}
+    }
     return (
-        <div className="note">
+        <div className="note" onClick={handleClick}>
             <h2 className="noteTitle">{showTitle}</h2>
             <p className="noteText">{showText}</p>
             <div className="delete flex">
                 <IconButton aria-label="delete" className="iconButton" >
-                    <DeleteIcon className="delete-icon" />
+                    <DeleteIcon className="delete-icon" onClick={() => {
+                        props.onDelete(props.id);
+                    }} />
                 </IconButton>
             </div>
         </div>
