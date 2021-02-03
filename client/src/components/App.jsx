@@ -1,35 +1,29 @@
-import React, { useState } from 'react'
 import { Header } from './Header';
 import { Footer } from './Footer';
-import { NewNote } from './NewNote';
+import NewNote from './NewNote';
 import { Note } from "./Note";
-import data from "./data";
+import { useSelector } from 'react-redux'
+
+// import { connect } from 'react-redux'
 
 
-function App() {
-    const [notes, setNotes] = useState(data);
-    function addNote(newNote) {
-        setNotes((prevNotes) =>
-            [newNote, ...prevNotes]
-        );
+function App(props) {
 
-    }
-    function deleteNote(id) {
-        setNotes(notes.filter((note, index) => index !== id));
-    }
+    //can also be done with mapStateToProps as said at bottom of this component
+    const notes = useSelector(state => state.notes)
     return (
         <div>
             <Header />
-            <NewNote onAdd={addNote} />
+            <NewNote />
             <div className="grid container">
                 {
+                    // props.notes.map((note, index) => (
                     notes.map((note, index) => (
                         <Note
                             key={index}
                             id={index}
                             title={note.Title}
                             text={note.Content}
-                            onDelete={deleteNote}
                         />))
                 }
             </div>
@@ -37,5 +31,12 @@ function App() {
         </div>
     );
 }
+
+// const mapStateToProps = (state) => {
+//     return {
+//         notes: state.notes
+//     }
+// }
+// export default connect(mapStateToProps)(App);
 
 export default App;

@@ -3,13 +3,20 @@ import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import Zoom from '@material-ui/core/Zoom';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+import { useDispatch } from 'react-redux'
+// import { connect } from 'react-redux'
+import { addNote } from '../actions'
 
 function NewNote(props) {
+    const dispatch = useDispatch()
+
     const [newNote, setNewNote] = useState({
         Title: "",
         Content: ""
     });
+
     const [displayTitle, setDisplayTitle] = useState(false);
+
     function handleChange(event) {
         const { name, value } = event.target;
         setNewNote((prevState) => ({ ...prevState, [name]: value }))
@@ -22,8 +29,13 @@ function NewNote(props) {
             <form
                 autoComplete="off"
                 onSubmit={(e) => {
+                    e.preventDefault();
                     if (newNote.Title && newNote.Content) {
-                        props.onAdd(newNote);
+
+                        // props.addNote(newNote)
+                        dispatch(addNote(newNote))
+
+
                         setDisplayTitle(false);
 
                         setNewNote({
@@ -31,7 +43,7 @@ function NewNote(props) {
                             Content: ""
                         })
                     }
-                    e.preventDefault();
+
                 }}
             >
                 {displayTitle &&
@@ -70,4 +82,10 @@ function NewNote(props) {
     );
 }
 
-export { NewNote };
+// const matchDispatchToProps = (dispatch) => {
+//     return {
+//         addNote: (newNote) => { dispatch(addNote(newNote)) }
+//     }
+// }
+// export default connect(null, matchDispatchToProps)(NewNote);
+export default NewNote;
