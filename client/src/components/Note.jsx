@@ -19,10 +19,10 @@ function Note(props) {
             <h2 className="noteTitle">{showTitle}</h2>
             <p className="noteText">{showText}</p>
             <div className="delete flex">
-                <IconButton aria-label="delete" className="iconButton" >
-                    <DeleteIcon className="delete-icon" onClick={() => {
-                        dispatch(deleteNote(props.id))
-                    }} />
+                <IconButton aria-label="delete" className="iconButton" onClick={() => {
+                    dispatch(deleteNote(props.id))
+                }}>
+                    <DeleteIcon className="delete-icon" />
                 </IconButton>
             </div>
         </div>

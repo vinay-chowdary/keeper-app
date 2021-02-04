@@ -1,6 +1,5 @@
-import data from "../data";
 
-const notesReducer = (state = data, action) => {
+const notesReducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD':
             state = [...state, action.payload]
@@ -8,6 +7,9 @@ const notesReducer = (state = data, action) => {
         case 'DELETE':
             return state.filter((note, index) => index !== action.payload);
 
+        case 'FETCH_NOTES':
+            console.log(action.payload);
+            return [...state, ...action.payload]
         default:
             return state;
     }

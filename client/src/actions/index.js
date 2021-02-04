@@ -20,3 +20,13 @@ export const decreaseCount = () => {
         type: 'DECREASE'
     };
 };
+
+export const fetchNotes = () => dispatch => {
+    console.log("fetching........");
+    fetch('api/notes')
+        .then(res => res.json())
+        .then(notes => dispatch({
+            type: 'FETCH_NOTES',
+            payload: notes
+        }));
+}

@@ -11,8 +11,8 @@ function NewNote(props) {
     const dispatch = useDispatch()
 
     const [newNote, setNewNote] = useState({
-        Title: "",
-        Content: ""
+        title: "",
+        content: ""
     });
 
     const [displayTitle, setDisplayTitle] = useState(false);
@@ -30,7 +30,7 @@ function NewNote(props) {
                 autoComplete="off"
                 onSubmit={(e) => {
                     e.preventDefault();
-                    if (newNote.Title && newNote.Content) {
+                    if (newNote.title && newNote.content) {
 
                         // props.addNote(newNote)
                         dispatch(addNote(newNote))
@@ -39,8 +39,8 @@ function NewNote(props) {
                         setDisplayTitle(false);
 
                         setNewNote({
-                            Title: "",
-                            Content: ""
+                            title: "",
+                            content: ""
                         })
                     }
 
@@ -48,10 +48,10 @@ function NewNote(props) {
             >
                 {displayTitle &&
                     <input
-                        name="Title"
+                        name="title"
                         id="todoTitle"
                         placeholder="Title"
-                        value={newNote.Title}
+                        value={newNote.title}
                         onChange={handleChange}
                         required={true}
                         spellCheck="false"
@@ -61,11 +61,11 @@ function NewNote(props) {
                 }
                 <TextareaAutosize
                     onClick={handleClick}
-                    name="Content"
+                    name="content"
                     id="todotext"
                     className="textarea"
                     placeholder="take a note"
-                    value={newNote.Content}
+                    value={newNote.content}
                     onChange={handleChange}
                     required
                     rowsMin="1"
@@ -73,7 +73,7 @@ function NewNote(props) {
                     spellCheck="false"
                 />
                 {displayTitle && <Zoom timeout={700} in={true}>
-                    <Fab type="submit" color="#00adb5" aria-label="add" className="addBtn">
+                    <Fab type="submit" aria-label="add" className="addBtn">
                         <AddIcon />
                     </Fab>
                 </Zoom>}

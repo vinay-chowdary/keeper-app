@@ -139,7 +139,7 @@ input {
   margin-bottom: 1rem;
   background-color: #eee;
 }
-input[name="Title"] {
+input[name="title"] {
   font-size: 1.8rem;
 }
 

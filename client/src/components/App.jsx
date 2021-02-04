@@ -2,13 +2,22 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import NewNote from './NewNote';
 import { Note } from "./Note";
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { useEffect } from 'react'
+import { fetchNotes } from '../actions'
+
 
 // import { connect } from 'react-redux'
 
 
 function App(props) {
 
+    const dispatch = useDispatch();
+    useEffect(() => {
+        console.log("helllllooooo");
+        dispatch(fetchNotes())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [])
     //can also be done with mapStateToProps as said at bottom of this component
     const notes = useSelector(state => state.notes)
     return (
@@ -22,8 +31,8 @@ function App(props) {
                         <Note
                             key={index}
                             id={index}
-                            title={note.Title}
-                            text={note.Content}
+                            title={note.title}
+                            text={note.content}
                         />))
                 }
             </div>
