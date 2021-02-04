@@ -37,6 +37,7 @@ a {
 header h1 {
   padding: 1.5rem 0;
 }
+
 .brand {
   color: #eee;
   font-size: 2.5rem;
@@ -72,6 +73,8 @@ footer {
   transition: all linear 0.2s;
   position: relative;
   outline: none;
+  /* to prevent blue flash when, on mobile device */
+  -webkit-tap-highlight-color: transparent;
 }
 .note:hover {
   transform: scale(1.03);
@@ -92,6 +95,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .delete.flex {
@@ -148,6 +152,12 @@ input[name="title"] {
   font-family: "Roboto Mono", monospace;
 }
 
+/* stop firefox to show red border for required fields */
+textarea:required,
+input:required {
+  box-shadow: none;
+}
+
 .textarea::-webkit-scrollbar {
   display: none;
   scrollbar-width: none;
@@ -177,4 +187,19 @@ input[name="title"] {
 
 .display-none {
   display: none;
+}
+
+header > div.container {
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  header {
+    padding-bottom: 1rem;
+    text-align: center;
+    margin: auto;
+  }
+  header > div.container {
+    justify-content: center;
+  }
 }
