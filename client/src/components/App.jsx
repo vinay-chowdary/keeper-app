@@ -22,15 +22,15 @@ function App(props) {
     const notes = useSelector(state => state.notes)
     return (
         <div>
-            <Header />
+            <Header count={notes.length} />
             <NewNote />
             <div className="grid container">
                 {
                     // props.notes.map((note, index) => (
-                    notes.map((note, index) => (
+                    notes.map((note) => (
                         <Note
-                            key={index}
-                            id={index}
+                            key={note._id}
+                            id={note._id}
                             title={note.title}
                             text={note.content}
                         />))
