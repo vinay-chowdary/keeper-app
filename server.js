@@ -1,36 +1,32 @@
-
 // import packages
 
-const express = require('express');
-const mongoose = require('mongoose');
-require('dotenv').config()
-
-
+const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 //  routes
 
-const notesRouter = require('./routes/notes')
-
-
+const notesRouter = require("./routes/notes");
 
 //  middleware
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
+app.use(express.json());
 app.use(express.static("client/build"));
-
 
 //  database connection
 
 const dbURL = `mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_USER_PASSWORD}@cluster-vinay.dfnbs.mongodb.net/${process.env.DB_NAME}`;
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
-
 // routes
 
-app.use('/api/notes', notesRouter)
+app.use("/api/notes", notesRouter);
 
+app.all("*", (req, res) => {
+  res.status(404).send("<h3>Page not found</h3>");
+});
 
 //  listen on a port
 
