@@ -2,6 +2,7 @@
 
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 require("dotenv").config();
 
 //  routes
@@ -13,7 +14,7 @@ const notesRouter = require("./routes/notes");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("client/build"));
+app.use(express.static(path.join(__dirname, "client", "build")));
 
 //  database connection
 
@@ -21,7 +22,9 @@ const dbURL = `mongodb+srv://${process.env.DB_USER_NAME}:${process.env.DB_USER_P
 mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // routes
-
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.use("/api/notes", notesRouter);
 
 app.all("*", (req, res) => {
