@@ -1,0 +1,205 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Mono&display=swap");
+
+/* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Roboto Mono', monospace; */
+/* dark-blue:#060930 */
+/* light-purple:#333456 */
+/* light-blue:#595b83 */
+/* light-pink:#f4abc4 */
+
+* {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.15rem;
+  background: #0f0f0f;
+  position: relative;
+  min-height: 100vh;
+}
+header {
+  font-family: "Montserrat", sans-serif;
+  background: #00adb5;
+  box-shadow: 0 0 15px 0 #333;
+  margin-bottom: 2rem;
+  color: #fff;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.container {
+  width: 95%;
+  margin: 0 auto;
+}
+header h1 {
+  padding: 1.5rem 0;
+}
+
+.brand {
+  color: #eee;
+  font-size: 2.5rem;
+  margin-left: 1rem;
+}
+
+.logo {
+  color: #eeeeee;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  color: rgba(51, 51, 51, 0.698);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  padding-bottom: 2rem;
+}
+.note {
+  background: #000000;
+  border-radius: 8px;
+  box-shadow: 2px 0px 2px rgba(189, 189, 189, 0.356);
+  word-wrap: break-word;
+  font-size: 1rem;
+  padding: 3px 3px 20px;
+  cursor: pointer;
+  transition: all linear 0.2s;
+  position: relative;
+  outline: none;
+  /* to prevent blue flash when, on mobile device */
+  -webkit-tap-highlight-color: transparent;
+}
+.note:hover {
+  transform: scale(1.03);
+  box-shadow: 1.5px 0px 1px rgb(255, 255, 255);
+}
+.noteTitle,
+.noteText {
+  padding: 12px;
+}
+
+.noteTitle {
+  color: #eee;
+}
+.noteText {
+  color: rgb(197, 197, 197);
+}
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.delete.flex {
+  justify-content: flex-end;
+  position: absolute;
+  width: 100%;
+  bottom: 0%;
+}
+
+.delete .iconButton {
+  padding: 5px 10px;
+}
+
+.delete-icon {
+  color: #00acb557;
+}
+
+.delete-icon:hover {
+  color: #00acb5;
+}
+
+.newNote {
+  margin: 2.5rem auto;
+  display: flex;
+  justify-content: center;
+}
+
+.newNote form {
+  flex: 0 1 500px;
+  position: relative;
+  background-color: #eee;
+  padding: 0.6rem 0.3rem;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.76);
+}
+
+.textarea,
+input {
+  resize: none;
+  display: block;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 0.8rem 10px;
+  margin-bottom: 1rem;
+  background-color: #eee;
+}
+input[name="title"] {
+  font-size: 1.8rem;
+}
+
+.textarea {
+  font-size: 1.4rem;
+  font-family: "Roboto Mono", monospace;
+}
+
+/* stop firefox to show red border for required fields */
+textarea:required,
+input:required {
+  box-shadow: none;
+}
+
+.textarea::-webkit-scrollbar {
+  display: none;
+  scrollbar-width: none;
+}
+.newNote .addBtn {
+  position: absolute;
+  right: 20px;
+  bottom: -20px;
+  background-color: #00adb5;
+  color: #eee;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+  /* to prevent blue flash when, on mobile device */
+  -webkit-tap-highlight-color: transparent;
+}
+.newNote .addBtn:focus,
+.newNote .addBtn:active {
+  border: none;
+  outline: none;
+}
+.newNote .addBtn:hover {
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.637);
+  color: #eee;
+  background-color: #008d94;
+}
+
+.display-none {
+  display: none;
+}
+
+header > div.container {
+  justify-content: space-between;
+}
+
+@media (max-width: 500px) {
+  header {
+    padding-bottom: 1rem;
+    text-align: center;
+    margin: auto;
+  }
+  header > div.container {
+    justify-content: center;
+  }
+}
