@@ -5,6 +5,7 @@ import { Note } from "./Note";
 import { useSelector, useDispatch } from 'react-redux'
 import { useEffect } from 'react'
 import { fetchNotes } from '../actions'
+import "./main.css"
 
 
 // import { connect } from 'react-redux'
