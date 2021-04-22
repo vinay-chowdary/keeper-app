@@ -23,7 +23,8 @@ mongoose.connect(dbURL, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // routes
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  // res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  res.redirect("https://vinay-chowdary.github.io/keeper-app");
 });
 app.use("/api/notes", notesRouter);
 
