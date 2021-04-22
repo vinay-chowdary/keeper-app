@@ -38,7 +38,7 @@ export const decreaseCount = () => {
 };
 
 export const fetchNotes = () => (dispatch) => {
-  fetch("https://notes-keepr.heroku.app/api/notes")
+  fetch("api/notes")
     .then((res) => res.json())
     .then((notes) =>
       dispatch({
